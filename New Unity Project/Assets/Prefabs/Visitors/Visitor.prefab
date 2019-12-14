@@ -47,6 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 0}
+  destinationChoices:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  timeBetweenDestinationChange: 60
 --- !u!136 &6781779516196717608
 CapsuleCollider:
   m_ObjectHideFlags: 0

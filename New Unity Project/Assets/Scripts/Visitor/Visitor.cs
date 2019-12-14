@@ -8,7 +8,11 @@ public class Visitor : MonoBehaviour
     [SerializeField]
     private Transform destination;
 
-    NavMeshAgent navMeshAgent;
+    private NavMeshAgent navMeshAgent;
+
+    [SerializeField]private Transform[] destinationChoices;
+
+    [SerializeField] private float timeBetweenDestinationChange = 60f;
 
     private void Awake()
     {
@@ -28,9 +32,9 @@ public class Visitor : MonoBehaviour
             SetDestination();
         }
 
+        InvokeRepeating("ChooseDestination", 1f, timeBetweenDestinationChange);
     }
 
-    
     void Update()
     {
         
@@ -43,5 +47,11 @@ public class Visitor : MonoBehaviour
             Vector3 targetDestination = destination.transform.position;
             navMeshAgent.SetDestination(targetDestination);
         }
+    }
+
+    void ChooseDestination()
+    {
+        int indexNumber = Random.Range(0, destinationChoices.Length)
+        Debug.Log((destinationChoices[indexNumber]));
     }
 }
