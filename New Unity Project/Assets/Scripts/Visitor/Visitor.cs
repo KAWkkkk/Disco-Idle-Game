@@ -5,6 +5,18 @@ using UnityEngine.AI;
 
 public class Visitor : MonoBehaviour
 {
+    public enum States
+    {
+        Idle,
+        ChoosingDestination,
+        Leaving,
+    }
+    public enum Actions
+    {
+        Dancing,
+        AtTheBar,
+    }
+
     [SerializeField]
     private Transform destination;
 
@@ -38,10 +50,10 @@ public class Visitor : MonoBehaviour
 
     void SetDestination()
     {
-        if (destination)
-        {
-            Vector3 targetDestination = destination.transform.position;
-            navMeshAgent.SetDestination(targetDestination);
-        }
+        //if (destination)
+        //{
+            //Vector3 targetDestination = destination.transform.position;
+            //navMeshAgent.SetDestination(targetDestination);
+        //}
     }
 }
