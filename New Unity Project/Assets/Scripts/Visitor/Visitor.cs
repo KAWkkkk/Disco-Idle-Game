@@ -5,12 +5,18 @@ using UnityEngine.AI;
 
 public class Visitor : MonoBehaviour
 {
-    [SerializeField]
-    private Transform destination;
+    private enum States
+    {
+        Leaving,
+        Dancing,
+        ChoosingDestination,
+    }
+
+    [SerializeField] private Transform destination;
 
     private NavMeshAgent navMeshAgent;
 
-    [SerializeField]private Transform[] destinationChoices;
+    [SerializeField] private Transform[] destinationChoices;
 
     [SerializeField] private float timeBetweenDestinationChange = 60f;
 
@@ -32,12 +38,14 @@ public class Visitor : MonoBehaviour
             SetDestination();
         }
 
+
         InvokeRepeating("ChooseDestination", 1f, timeBetweenDestinationChange);
+
     }
 
     void Update()
     {
-        
+
     }
 
     void SetDestination()
@@ -49,9 +57,4 @@ public class Visitor : MonoBehaviour
         }
     }
 
-    void ChooseDestination()
-    {
-        int indexNumber = Random.Range(0, destinationChoices.Length)
-        Debug.Log((destinationChoices[indexNumber]));
-    }
 }
