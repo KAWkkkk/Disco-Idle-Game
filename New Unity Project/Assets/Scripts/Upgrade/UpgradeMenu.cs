@@ -8,5 +8,5 @@ public class UpgradeMenu : ScriptableObject
     public new string name;
 
     public int level;
-    
+    public int chosenPrice;
 }

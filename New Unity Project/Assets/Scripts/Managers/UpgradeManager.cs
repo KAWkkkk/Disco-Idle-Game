@@ -7,6 +7,7 @@ using TMPro;
 public class UpgradeManager : MonoBehaviour
 {
     public UpgradeMenu upgradeMenu;
+    public GameManager gameManager;
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI levelText;
@@ -24,7 +25,16 @@ public class UpgradeManager : MonoBehaviour
 
     public void UpgradeLevel()
     {
-        upgradeMenu.level += 1;
-        levelText.text = upgradeMenu.level.ToString();
+        if(gameManager.currentBalance >= upgradeMenu.chosenPrice) 
+        {
+            upgradeMenu.level += 1;
+            levelText.text = upgradeMenu.level.ToString();
+            gameManager.currentBalance -= upgradeMenu.chosenPrice;
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        
     }
 }

@@ -39,10 +39,11 @@ public class Visitor : MonoBehaviour
         {
             SetDestination();
         }
+        destination = GameObject.FindGameObjectWithTag("Destination").transform;
 
     }
 
-    
+
     void Update()
     {
         
@@ -50,10 +51,10 @@ public class Visitor : MonoBehaviour
 
     void SetDestination()
     {
-        //if (destination)
-        //{
-            //Vector3 targetDestination = destination.transform.position;
-            //navMeshAgent.SetDestination(targetDestination);
-        //}
+        if (destination)
+        {
+            Vector3 targetDestination = destination.transform.position;
+            navMeshAgent.SetDestination(targetDestination);
+        }
     }
 }
